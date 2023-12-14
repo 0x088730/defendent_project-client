@@ -1,0 +1,81 @@
+import React, { useState, useEffect } from 'react'
+import { Provider, useSelector } from 'react-redux'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+
+import { Web3ContextProvider } from './hooks/web3Context'
+import './App.css'
+
+import { GamePage, Main } from './pages'
+import { DefaultLayout } from './pages/default-layout'
+import phaserGame from './PhaserGame'
+import type Battle from './scenes/battle.scene'
+import type Game from './scenes/game.scene'
+import store from './store'
+
+const onAttack = (type: number) => {
+  const battle = phaserGame.scene.keys.battle as Battle
+  battle.attack(type)
+}
+
+const onStart = () => {
+  
+  const game = phaserGame.scene.keys.game as Game
+  game.room()
+}
+
+const onInventory = () => {
+  const game = phaserGame.scene.keys.game as Game
+  game.inventory()
+}
+
+const onDragon = () => {
+  const game = phaserGame.scene.keys.game as Game
+  game.dragon()
+}
+
+const App: React.FC = () => {
+  const [showAccount, setShowAccount] = useState(true)
+  const openModal = (flag: boolean) => {
+    setShowAccount(flag)
+  }  
+  
+  return (
+    <Web3ContextProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <DefaultLayout
+                  onModalShow={openModal}
+                  component={
+                    <GamePage
+                      showAccount={showAccount}
+                      setShowAccount={openModal}
+                      onAttack={onAttack}
+                      onStart={onStart}
+                      onInventory={onInventory}
+                      onDragon={onDragon}
+                    />
+                  }
+                />
+              }
+            />
+            <Route
+              path="/land"
+              element={
+                <Main
+                  showAccount={showAccount}
+                  setShowAccount={setShowAccount}
+                />
+              }
+            />
+          </Routes>
+        </BrowserRouter>
+      </Provider>
+    </Web3ContextProvider>
+  )
+}
+
+export default App

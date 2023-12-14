@@ -1,0 +1,10 @@
+.description {
+    font-family: CubicPixel;
+    font-weight: bold;
+    font-size: 18px;
+    text-shadow: 0 0 3px black;
+    text-align: right;
+    color: #ec8412;
+    letter-spacing: 1px;
+    margin-top: 3px;
+}

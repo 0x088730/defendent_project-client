@@ -1,0 +1,30 @@
+.displayCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.selectBtn {
+    width: 80px;
+    height: 80px;
+    line-height: 1;
+    background-color: white;
+    padding: 15px 0;
+    margin: 10px;
+    border: 4px dotted black;
+    border-radius: 23px;
+    font-size: 40px;
+    font-family: sans-serif;
+    color: black;
+    cursor: pointer;
+    background-size: cover;
+}
+.levelTitle {
+    position: relative;
+    top: 130px;
+    color: white;
+    font-size: 20px;
+    font-family: CubicPixel;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px black;
+}
