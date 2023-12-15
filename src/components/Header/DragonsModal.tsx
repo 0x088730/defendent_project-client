@@ -68,8 +68,11 @@ const DragonModal = ({
 
     const [dragonInfoModalOpen, setDragonInfoModalOpen] = useState(false);
     const [dragonInfo, setDragonInfo] = useState({});
+    const [buyingStatus, setBuyingStatus] = useState(false);
 
     const onBuyDragon = (name: any, num: any) => {
+        if (buyingStatus === true) return
+        setBuyingStatus(true);
         if (address !== '') {
             dispatch(
                 buyDragon(address, { dragonName: name, dragonNo: num }, (res: any) => {
@@ -77,16 +80,23 @@ const DragonModal = ({
                         if (name === "gold_dragon") setBuyedGoldDragon(true);
                         if (name === 'pink_dragon') setBuyedPinkDragon(true);
                         if (name === 'dark_dragon') setBuyedDarkDragon(true)
-                        getProfile(address, "dragon")
+                        getDragonList(address, (res: any) => {
+                            setDragons(res.dragons)
+                        });
+                        getProfile(address, "dragon");
+                        setBuyingStatus(false);
                     }
                 }),
             )
         }
     }
     const selectDragon = (num: any) => {
-        setDragonInfo(global.dragons[num]);
-        setDragonInfoModalOpen(true);
-        setDragonModalOpen(false);
+        if (global.dragons.length > num) {
+            setDragonInfo(global.dragons[num]);
+            setDragonInfoModalOpen(true);
+            setDragonModalOpen(false);
+
+        }
     }
     const style = {
         position: 'absolute' as const,
@@ -158,7 +168,7 @@ const DragonModal = ({
                                             sx={{
                                                 width: '145px',
                                                 height: '60px',
-                                                marginTop:"-9px",
+                                                marginTop: "-9px",
                                             }}
                                         >
                                             <img alt="" src="/assets/images/big-button.png" />
@@ -197,7 +207,7 @@ const DragonModal = ({
                                             width: '145px',
                                             height: '60px',
                                             // marginTop: "20px"
-                                            marginTop:"-9px",
+                                            marginTop: "-9px",
                                         }}
                                     >
                                         <img alt="" src="/assets/images/big-button.png" />
