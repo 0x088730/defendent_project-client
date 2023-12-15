@@ -148,7 +148,7 @@ const DragonModal = ({
                                 style={{ cursor: 'pointer' }}
                                 onClick={() => buyedGoldDragon === false ? null : selectDragon(1)}
                             >
-                                <img src="/assets/images/dragons/gold_dragon.gif" width="170px" height="170px" style={{marginLeft: '28px'}} />
+                                <img src="/assets/images/dragons/gold_dragon.gif" width="170px" height="170px" style={{ marginLeft: '28px' }} />
                             </div>
                             {
                                 buyedGoldDragon === false ?
@@ -191,7 +191,27 @@ const DragonModal = ({
                                         </div>
                                     </div>
                                     :
-                                    null
+                                    <Button
+                                        sx={{
+                                            width: '145px',
+                                            height: '60px',
+                                            marginTop: "20px"
+                                        }}
+                                    >
+                                        <img alt="" src="/assets/images/big-button.png" />
+                                        <p
+                                            style={{
+                                                position: 'absolute',
+                                                fontFamily: 'CubicPixel',
+                                                fontSize: '20px',
+                                                textAlign: 'center',
+                                                color: '#e7e1e1',
+                                                letterSpacing: "2px"
+                                            }}
+                                        >
+                                            Common
+                                        </p>
+                                    </Button>
                             }
                         </div>
                         <div style={{
@@ -279,7 +299,28 @@ const DragonModal = ({
                                         </div>
                                     </div>
                                     :
-                                    null
+                                    <Button
+                                        sx={{
+                                            width: '145px',
+                                            height: '60px',
+                                            marginLeft: '-15px',
+                                            marginTop: '20px'
+                                        }}
+                                    >
+                                        <img alt="" src="/assets/images/big-button.png" />
+                                        <p
+                                            style={{
+                                                position: 'absolute',
+                                                fontFamily: 'CubicPixel',
+                                                fontSize: '20px',
+                                                textAlign: 'center',
+                                                color: '#e7e1e1',
+                                                letterSpacing: "2px"
+                                            }}
+                                        >
+                                            Rare
+                                        </p>
+                                    </Button>
                             }
                         </div>
                         <div style={{
@@ -289,7 +330,7 @@ const DragonModal = ({
                             textAlign: 'center'
                         }}>
                             {buyedDarkDragon === true ?
-                                <div className='levelTitle' style={{marginLeft: "-60px"}}>LEVEL: <span style={{ color: '#ff8a00' }}>{`${global.dragons[3] !== undefined ? global.dragons[3].level : "1"}`}</span></div>
+                                <div className='levelTitle' style={{ marginLeft: "-60px" }}>LEVEL: <span style={{ color: '#ff8a00' }}>{`${global.dragons[3] !== undefined ? global.dragons[3].level : "1"}`}</span></div>
                                 : null
                             }
                             <div
@@ -367,7 +408,28 @@ const DragonModal = ({
                                         </div>
                                     </div>
                                     :
-                                    null
+                                    <Button
+                                        sx={{
+                                            width: '145px',
+                                            height: '60px',
+                                            marginRight: '65px',
+                                            marginTop: '20px'
+                                        }}
+                                    >
+                                        <img alt="" src="/assets/images/big-button.png" />
+                                        <p
+                                            style={{
+                                                position: 'absolute',
+                                                fontFamily: 'CubicPixel',
+                                                fontSize: '20px',
+                                                textAlign: 'center',
+                                                color: '#e7e1e1',
+                                                letterSpacing: "2px"
+                                            }}
+                                        >
+                                            Lengend
+                                        </p>
+                                    </Button>
                             }
                         </div>
                         {/* <div>
