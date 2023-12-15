@@ -193,7 +193,7 @@ const DragonModal = ({
                                                 color: 'white',
                                                 textShadow: "2px 2px black",
                                                 textAlign: 'left',
-                                                marginLeft: '30px'
+                                                marginLeft: '50px'
                                             }}
                                         >
                                             common-70% <br />
@@ -302,7 +302,7 @@ const DragonModal = ({
                                                 color: 'white',
                                                 textShadow: "2px 2px black",
                                                 textAlign: 'left',
-                                                marginLeft: '40px'
+                                                marginLeft: '62px'
                                             }}
                                         >
                                             common-50% <br />
@@ -411,7 +411,7 @@ const DragonModal = ({
                                                 color: 'white',
                                                 textShadow: "2px 2px black",
                                                 textAlign: 'left',
-                                                marginLeft: '20px'
+                                                marginLeft: '40px'
                                             }}
                                         >
                                             common-20% <br />
