@@ -90,11 +90,10 @@ const RockModal = ({
                 className='well-back'
                 style={{
                   width: '290px',
-                  height: '220px',
+                  height: '245px',
                   background: "url(/assets/images/meat.png)",
                   backgroundSize: 'cover',
                   margin: 'auto',
-                  marginTop: '40px',
                 }}
               ></div>
               <Box
