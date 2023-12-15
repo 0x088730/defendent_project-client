@@ -156,8 +156,9 @@ const DragonModal = ({
                                         <Button
                                             onClick={() => onBuyDragon("gold_dragon", 0)}
                                             sx={{
-                                                width: '180px',
+                                                width: '145px',
                                                 height: '60px',
+                                                marginTop:"-9px",
                                             }}
                                         >
                                             <img alt="" src="/assets/images/big-button.png" />
@@ -165,7 +166,7 @@ const DragonModal = ({
                                                 style={{
                                                     position: 'absolute',
                                                     fontFamily: 'CubicPixel',
-                                                    fontSize: '28px',
+                                                    fontSize: '20px',
                                                     textAlign: 'center',
                                                     color: '#e7e1e1',
                                                     letterSpacing: "2px"
@@ -195,7 +196,8 @@ const DragonModal = ({
                                         sx={{
                                             width: '145px',
                                             height: '60px',
-                                            marginTop: "20px"
+                                            // marginTop: "20px"
+                                            marginTop:"-9px",
                                         }}
                                     >
                                         <img alt="" src="/assets/images/big-button.png" />
@@ -236,7 +238,7 @@ const DragonModal = ({
                                         {buyedGoldDragon === false ?
                                             <Button
                                                 sx={{
-                                                    width: '180px',
+                                                    width: '145px',
                                                     height: '60px',
                                                     marginLeft: '-15px'
                                                 }}
@@ -247,7 +249,7 @@ const DragonModal = ({
                                                     style={{
                                                         position: 'absolute',
                                                         fontFamily: 'CubicPixel',
-                                                        fontSize: '28px',
+                                                        fontSize: '20px',
                                                         textAlign: 'center',
                                                         color: '#e7e1e1',
                                                         letterSpacing: "2px",
@@ -261,7 +263,7 @@ const DragonModal = ({
                                             <Button
                                                 onClick={() => onBuyDragon("pink_dragon", 1)}
                                                 sx={{
-                                                    width: '180px',
+                                                    width: '145px',
                                                     height: '60px',
                                                     marginLeft: '-15px'
                                                 }}
@@ -271,7 +273,7 @@ const DragonModal = ({
                                                     style={{
                                                         position: 'absolute',
                                                         fontFamily: 'CubicPixel',
-                                                        fontSize: '28px',
+                                                        fontSize: '20px',
                                                         textAlign: 'center',
                                                         color: '#e7e1e1',
                                                         letterSpacing: "2px"
@@ -304,7 +306,7 @@ const DragonModal = ({
                                             width: '145px',
                                             height: '60px',
                                             marginLeft: '-15px',
-                                            marginTop: '20px'
+                                            // marginTop: '20px'
                                         }}
                                     >
                                         <img alt="" src="/assets/images/big-button.png" />
@@ -345,7 +347,7 @@ const DragonModal = ({
                                         {buyedPinkDragon === false ?
                                             <Button
                                                 sx={{
-                                                    width: '180px',
+                                                    width: '145px',
                                                     height: '60px',
                                                     marginRight: '65px'
                                                 }}
@@ -356,7 +358,7 @@ const DragonModal = ({
                                                     style={{
                                                         position: 'absolute',
                                                         fontFamily: 'CubicPixel',
-                                                        fontSize: '28px',
+                                                        fontSize: '20px',
                                                         textAlign: 'center',
                                                         color: '#e7e1e1',
                                                         letterSpacing: "2px",
@@ -370,7 +372,7 @@ const DragonModal = ({
                                             <Button
                                                 onClick={() => onBuyDragon("dark_dragon", 1)}
                                                 sx={{
-                                                    width: '180px',
+                                                    width: '145px',
                                                     height: '60px',
                                                     marginRight: '65px'
                                                 }}
@@ -380,7 +382,7 @@ const DragonModal = ({
                                                     style={{
                                                         position: 'absolute',
                                                         fontFamily: 'CubicPixel',
-                                                        fontSize: '28px',
+                                                        fontSize: '20px',
                                                         textAlign: 'center',
                                                         color: '#e7e1e1',
                                                         letterSpacing: "2px"
@@ -413,7 +415,7 @@ const DragonModal = ({
                                             width: '145px',
                                             height: '60px',
                                             marginRight: '65px',
-                                            marginTop: '20px'
+                                            // marginTop: '20px'
                                         }}
                                     >
                                         <img alt="" src="/assets/images/big-button.png" />

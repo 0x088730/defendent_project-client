@@ -62,7 +62,7 @@ const DepositModal = ({
       const bcsPrice = 1
       const maxAmount =
         (checkPremium(user.premium).isPremium ? 10 : 5) / bcsPrice
-    
+
       setWithdrawableBcsAmount(maxAmount - Math.floor(withdrewDrgAmount / 10))
     })()
   }, [user.withdraws])
@@ -72,7 +72,7 @@ const DepositModal = ({
     e.preventDefault()
 
     if (e.target.value < 0) {
-      if(modalTitle === "deposit"){
+      if (modalTitle === "deposit") {
         setBCSAmount(320)
       }
       else {
@@ -80,7 +80,7 @@ const DepositModal = ({
       }
       return
     }
-    if(modalTitle === "deposit"){
+    if (modalTitle === "deposit") {
       setBCSAmount(e.target.value);
     }
     else {
@@ -121,8 +121,7 @@ const DepositModal = ({
       ADMIN_WALLET_ADDRESS[chainId],
       bcsAmount,
     )
-    if(transaction===null || transaction===undefined) 
-    {
+    if (transaction === null || transaction === undefined) {
       return
     }
     dispatch(
@@ -143,12 +142,10 @@ const DepositModal = ({
   }
 
   const onWithdraw = async () => {
-    console.log("withdraw amount", drgAmount)
     if (drgAmount > 50) {
       alert("Maxim withdraw amount is 50DRG");
       return
     }
-console.log("withdrawableBcsAmount", withdrawableBcsAmount)
     if (withdrawableBcsAmount * 10 <= drgAmount) {
       dispatch(
         onShowAlert(
@@ -289,7 +286,7 @@ console.log("withdrawableBcsAmount", withdrawableBcsAmount)
                     onChange={onChangeAmount}
                   />
                 </div>
-                <p style={{ textAlign: 'center', fontSize: '22px' }}>You will receive <br /> <span>{modalTitle === 'deposit' ? bcsAmount: drgAmount}</span>{modalTitle === 'deposit' ? ' DRG' : ' BCS'}</p>
+                <p style={{ textAlign: 'center', fontSize: '22px' }}>You will receive <br /> <span>{modalTitle === 'deposit' ? bcsAmount : drgAmount}</span>{modalTitle === 'deposit' ? ' DRG' : ' BCS'}</p>
                 <p
                   style={{
                     color: '#770909',
