@@ -31,9 +31,9 @@ const DragonInfoModal = ({
 }: Props) => {
     const [imgWidth, setImgWidth] = useState('220px');
     useEffect(() => {
-        if(dragonInfo.dragonName === 'gold_dragon') setImgWidth('220px');
-        if(dragonInfo.dragonName === 'pink_dragon') setImgWidth('313px');
-        if(dragonInfo.dragonName === 'dark_dragon') setImgWidth('324px');
+        if (dragonInfo.dragonName === 'gold_dragon') setImgWidth('220px');
+        if (dragonInfo.dragonName === 'pink_dragon') setImgWidth('313px');
+        if (dragonInfo.dragonName === 'dark_dragon') setImgWidth('324px');
     }, [dragonInfoModalOpen])
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 20,
@@ -149,12 +149,33 @@ const DragonInfoModal = ({
                                 </p>
                             </Button>
                         </div>
-                        <img 
-                        alt="" 
-                        src={`assets/images/dragons/${dragonInfo.dragonName}.gif`} 
-                        width={imgWidth} 
-                        style={{position: 'relative', top: '-25px', left: '20px'}}
-                        />
+                        {dragonInfo.dragonName === "gold_dragon" && <>
+                            <img
+                                alt=""
+                                src={`assets/images/dragons/${dragonInfo.dragonName}.gif`}
+                                width={imgWidth}
+
+                                style={{ position: 'relative', top: '-22px', left: '45px' }}
+                            />
+                        </>}
+                        {dragonInfo.dragonName === "pink_dragon" && <>
+                            <img
+                                alt=""
+                                src={`assets/images/dragons/${dragonInfo.dragonName}.gif`}
+                                width={imgWidth}
+
+                                style={{ position: 'relative', top: '-22px', left: '30px' }}
+                            />
+                        </>}
+                        {dragonInfo.dragonName === "dark_dragon" && <>
+                            <img
+                                alt=""
+                                src={`assets/images/dragons/${dragonInfo.dragonName}.gif`}
+                                width={imgWidth}
+
+                                style={{ position: 'relative', top: '-22px', left: '71px' }}
+                            />
+                        </>}
                         <div
                             style={{
                                 width: '160px', height: '85px',

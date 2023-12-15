@@ -105,7 +105,7 @@ const DragonModal = ({
         transform: 'translate(-50%, -50%)',
         width: {
             xs: 130,
-            md: 800,
+            md: 900,
         },
     }
 
@@ -146,8 +146,8 @@ const DragonModal = ({
                     >
                         <div style={{
                             position: 'absolute',
-                            top: buyedGoldDragon === true ? '50px' : '80px',
-                            left: '73px',
+                            top: buyedGoldDragon === true ? '89px' : '119px',
+                            left: '90px',
                             textAlign: 'center'
                         }}>
                             {buyedGoldDragon === true ?
@@ -228,8 +228,8 @@ const DragonModal = ({
                         </div>
                         <div style={{
                             position: 'absolute',
-                            top: buyedPinkDragon === true ? '50px' : '80px',
-                            left: '285px',
+                            top: buyedPinkDragon === true ? '89px' : '119px',
+                            left: '325px',
                             textAlign: 'center'
                         }}>
                             {buyedPinkDragon === true ?
@@ -337,8 +337,8 @@ const DragonModal = ({
                         </div>
                         <div style={{
                             position: 'absolute',
-                            top: buyedDarkDragon === true ? '50px' : '80px',
-                            right: '33px',
+                            top: buyedDarkDragon === true ? '89px' : '116px',
+                            right: '69px',
                             textAlign: 'center'
                         }}>
                             {buyedDarkDragon === true ?
