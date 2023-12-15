@@ -29,7 +29,12 @@ const DragonInfoModal = ({
     meat,
     setMeat,
 }: Props) => {
-
+    const [imgWidth, setImgWidth] = useState('220px');
+    useEffect(() => {
+        if(dragonInfo.dragonName === 'gold_dragon') setImgWidth('220px');
+        if(dragonInfo.dragonName === 'pink_dragon') setImgWidth('313px');
+        if(dragonInfo.dragonName === 'dark_dragon') setImgWidth('324px');
+    }, [dragonInfoModalOpen])
     const BorderLinearProgress = styled(LinearProgress)(({ theme }) => ({
         height: 20,
         outline: '3px solid black',
@@ -144,7 +149,7 @@ const DragonInfoModal = ({
                                 </p>
                             </Button>
                         </div>
-                        <img alt="" src={`assets/images/dragons/${dragonInfo.dragonName}_avatar.png`} width={'250px'} />
+                        <img alt="" src={`assets/images/dragons/${dragonInfo.dragonName}.gif`} width={imgWidth} />
                         <div
                             style={{
                                 width: '160px', height: '85px',
