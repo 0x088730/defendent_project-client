@@ -1,6 +1,5 @@
 import { global } from '../../common/global'
 import api from '../../utils/callApi'
-import { fetchData } from '../../utils/fetchData'
 
 import {
   GET_RESOURCES_SUCCESS,

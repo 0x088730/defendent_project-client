@@ -5,7 +5,6 @@ import api from '../../../utils/callApi'
 import type { GameStateProps, StockProps } from './state'
 import initialState from './state'
 import { useWeb3Context } from '../../../hooks/web3Context'
-import { fetchData } from '../../../utils/fetchData'
 
 export const gameSlice = createSlice({
   // `createSlice` will infer the state type from the `initialState` argument

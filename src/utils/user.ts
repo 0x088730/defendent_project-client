@@ -1,7 +1,6 @@
 import type { Withdraw } from '../store/user/action-types'
 
 import api from './callApi'
-import { fetchData } from './fetchData'
 
 const isWithin24h = (date: string): boolean => {
   return new Date(date).getTime() > new Date().getTime() - 24 * 60 * 60 * 1000

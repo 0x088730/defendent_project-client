@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import api from '../../../utils/callApi'
-import { fetchData } from "../../../utils/fetchData";
 
 // import {
 //   GET_PROFILE
