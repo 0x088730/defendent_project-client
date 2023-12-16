@@ -159,7 +159,6 @@ export function buyLevel(address: any, dragon: any, meatAmount: any, cb: any) {
 }
 export function checkCooldown(address: any, type: string, cb: any) {
   return async (dispatch: any) => {
-    console.log(address, type)
     const res = await api(`user/check/cooldown`, 'post', {
       walletAddress: address,
       type: type,
