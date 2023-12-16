@@ -1,6 +1,7 @@
 import config from '../utils/config'
 
-const apiUrl = `${config.server}:${config.port}${config.baseURL}`
+// const apiUrl = `${config.server}:${config.port}${config.baseURL}`
+const apiUrl = `${config.server}${config.baseURL}`
 export const fetchData = async (url, method, data) => {
      return await fetch(`${apiUrl}${url}`, {
         method,

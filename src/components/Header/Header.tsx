@@ -173,7 +173,7 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
         <img
           alt=""
           style={{ width: '25px', marginRight: '10px' }}
-          src="/images/res_Drg.png"
+          // src="/images/res_Drg.png"
         />
         {`DRG: ${Drg}`}
       </p>

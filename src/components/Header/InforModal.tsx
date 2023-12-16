@@ -109,7 +109,7 @@ const InforModal = ({ openAccount, setOpenAccount }: Props) => {
             <div>Account</div>
           </div>
           <div className={styles.close} onClick={handleClose}>
-            <img alt="" src="/icons/icon-close.png" />
+            <img alt="" src="/images/support/support_md_close_btn.png" />
           </div>
         </div>
 

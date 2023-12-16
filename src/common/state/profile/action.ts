@@ -26,7 +26,7 @@ export interface UserProfile {
 export const getProfile = createAsyncThunk<UserProfile, string> (
     GET_PROFILE,
     async (walletAddress: string, { rejectWithValue }) => {
-      const response = await fetchData('/user/profile', 'POST', {
+      const response = await api('/user/profile', 'post', {
         walletAddress
       })
       const data = await response.json()

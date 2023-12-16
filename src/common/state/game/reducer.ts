@@ -50,7 +50,7 @@ export const gameSlice = createSlice({
       action: PayloadAction<Number>,
     ) => {
       const address = state.address
-      const res = fetchData(`/user/add/exp`, 'POST', {
+      const res = api(`/user/add/exp`, 'post', {
         walletAddress: address,
         amount: action.payload,
       })

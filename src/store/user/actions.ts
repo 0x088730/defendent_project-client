@@ -26,11 +26,10 @@ var is_bird_claiming = false
 
 export function getUserData(address: any, ref: any, cb: any) {
   return async (dispatch: any) => {
-    const data = {
+    const res = await api("user", "post", {
       walletAddress: address,
       ref: ref,
-    }
-    const res = await fetchData("/user", "POST", data)
+    })
     cb(res)
     dispatch({
       type: GET_RESOURCES_SUCCESS,
@@ -41,7 +40,7 @@ export function getUserData(address: any, ref: any, cb: any) {
 
 export function startMineTownCooldown(address: any, cooldownCount: number, rewardAmount: number, cardImg: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/start/mineTown-cooldown`, 'POST', {
+    const res = await api(`user/start/mineTown-cooldown`, 'post', {
       walletAddress: address,
       cooldownCount: cooldownCount,
       rewardAmount: rewardAmount,
@@ -57,7 +56,7 @@ export function startMineTownCooldown(address: any, cooldownCount: number, rewar
 
 export function startDragonTownCooldown(address: any, price: any, times: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/start/dragonTown-cooldown`, 'POST', {
+    const res = await api(`user/start/dragonTown-cooldown`, 'post', {
       walletAddress: address,
       price: price,
       times: times,
@@ -75,7 +74,7 @@ export function stakeDiamond(address: any, index: number, item: number, cb: any,
     try {
       if (is_diamond_staking) return
       is_diamond_staking = true
-      const res = await fetchData(`/user/stake/diamond`, 'POST', {
+      const res = await api(`user/stake/diamond`, 'post', {
         walletAddress: address,
         position: index,
         diamond: item,
@@ -98,7 +97,7 @@ export function stakeBird(address: any, position: number, cb: any) {
     try {
       if (is_bird_staking) return
       is_bird_staking = true
-      const res = await fetchData(`/user/stake/bird`, 'POST', {
+      const res = await api(`user/stake/bird`, 'post', {
         walletAddress: address,
         position,
       })
@@ -117,7 +116,7 @@ export function stakeBird(address: any, position: number, cb: any) {
 
 export function swapMeats(address: any, level: Number, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/swap/meat`, 'POST', {
+    const res = await api(`user/swap/meat`, 'post', {
       walletAddress: address,
       level: level,
     })
@@ -131,7 +130,7 @@ export function swapMeats(address: any, level: Number, cb: any) {
 
 export function changeResources(address: any, drgAmount: Number, meatAmount: Number, eggAmount: Number, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/change/resources`, 'POST', {
+    const res = await api(`user/change/resources`, 'post', {
       walletAddress: address,
       drgAmount: drgAmount,
       meatAmount: meatAmount,
@@ -147,7 +146,7 @@ export function changeResources(address: any, drgAmount: Number, meatAmount: Num
 
 export function buyLevel(address: any, dragon: any, meatAmount: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/buy/level`, 'POST', {
+    const res = await api(`user/buy/level`, 'post', {
       walletAddress: address,
       dragon: dragon,
       meatAmount: meatAmount,
@@ -161,7 +160,7 @@ export function buyLevel(address: any, dragon: any, meatAmount: any, cb: any) {
 }
 export function checkCooldown(address: any, type: string, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/check/cooldown`, 'POST', {
+    const res = await api(`user/check/cooldown`, 'post', {
       walletAddress: address,
       type: type,
     })
@@ -175,7 +174,7 @@ export function checkCooldown(address: any, type: string, cb: any) {
 export function getMiningStatus(address: any, cb: any) {
   return async (dispatch: any) => {
 
-    const res = await fetchData(`/user/getMiningStatus`, 'POST', {
+    const res = await api(`user/getMiningStatus`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -187,7 +186,7 @@ export function getMiningStatus(address: any, cb: any) {
 }
 export function levelupHunter(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/levelup/hunter`, 'POST', {
+    const res = await api(`user/levelup/hunter`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -199,7 +198,7 @@ export function levelupHunter(address: any, cb: any) {
 }
 export function checkUpgradeAvailable(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/check/upgradeavailable`, 'POST', {
+    const res = await api(`user/check/upgradeavailable`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -211,7 +210,7 @@ export function checkUpgradeAvailable(address: any, cb: any) {
 }
 export function claimDrg(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/claim/drg`, 'POST', {
+    const res = await api(`user/claim/drg`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -223,7 +222,7 @@ export function claimDrg(address: any, cb: any) {
 }
 export function convertDrg(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/convert/drg`, 'POST', {
+    const res = await api(`user/convert/drg`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -235,7 +234,7 @@ export function convertDrg(address: any, cb: any) {
 }
 export function claimHunter(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/claim/hunter`, 'POST', {
+    const res = await api(`user/claim/hunter`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -247,7 +246,7 @@ export function claimHunter(address: any, cb: any) {
 }
 export function claimDragonTown(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/claim/dragonTown`, 'POST', {
+    const res = await api(`user/claim/dragonTown`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -259,7 +258,7 @@ export function claimDragonTown(address: any, cb: any) {
 }
 export function setCooldown(address: any, type: string, value: boolean, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/set/cooldown`, 'POST', {
+    const res = await api(`user/set/cooldown`, 'post', {
       walletAddress: address,
       type: type,
       value: value
@@ -274,7 +273,7 @@ export function setCooldown(address: any, type: string, value: boolean, cb: any)
 
 export function swapEggs(address: any, amount: Number, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/swap/egg`, 'POST', {
+    const res = await api(`user/swap/egg`, 'post', {
       walletAddress: address,
       amount: amount,
     })
@@ -288,7 +287,7 @@ export function swapEggs(address: any, amount: Number, cb: any) {
 
 export function upgradeWall(address: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/upgrade/wall`, 'POST', {
+    const res = await api(`user/upgrade/wall`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -304,7 +303,7 @@ export function claimDiamond(address: any, index: number, cb: any) {
     try {
       if (is_diamond_claiming) return
       is_diamond_claiming = true
-      const res = await fetchData(`/user/claim/diamond`, 'POST', {
+      const res = await api(`user/claim/diamond`, 'post', {
         walletAddress: address,
         position: index,
       })
@@ -325,7 +324,7 @@ export function claimBird(address: any, position: number, cb: any) {
     try {
       if (is_bird_claiming) return
       is_bird_claiming = true
-      const res = await fetchData(`/user/claim/bird`, 'POST', {
+      const res = await api(`user/claim/bird`, 'post', {
         walletAddress: address,
         position,
       })
@@ -348,7 +347,7 @@ export function depositRequest(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/deposit`, 'POST', {
+    const res = await api(`user/deposit`, 'post', {
       walletAddress: address,
       amount: amount,
       txID: txID,
@@ -366,7 +365,7 @@ export function meatRequest(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/meat`, 'POST', {
+    const res = await api(`user/meat`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -386,7 +385,7 @@ export function withdrawRequest(
   return async (dispatch: any) => {
     let res
     try {
-      res = await fetchData(`/user/withdraw`, 'POST', {
+      res = await api(`user/withdraw`, 'post', {
         walletAddress: address,
         amount: amount,
         // txID: txID,
@@ -410,7 +409,7 @@ export function buyDragon(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/buy/dragon`, 'POST', {
+    const res = await api(`user/buy/dragon`, 'post', {
       walletAddress: address,
       dragon: dragon,
     })
@@ -427,7 +426,7 @@ export function getDragonList(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/get/dragonList`, 'POST', {
+    const res = await api(`user/get/dragonList`, 'post', {
       walletAddress: address,
     })
     
@@ -445,7 +444,7 @@ export function buyPremium(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/buypremium`, 'POST', {
+    const res = await api(`user/buypremium`, 'post', {
       walletAddress: address,
       amount: amount,
       txID: txID,
@@ -467,7 +466,7 @@ export function buyMap(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/buymap`, 'POST', {
+    const res = await api(`user/buymap`, 'post', {
       walletAddress: address,
       amount: amount,
       txID: txID,
@@ -490,7 +489,7 @@ export function buyMining(
   cb: any,
 ) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/buymining`, 'POST', {
+    const res = await api(`user/buymining`, 'post', {
       walletAddress: address,
       amount: amount,
       txID: txID,
@@ -507,7 +506,7 @@ export function buyMining(
 
 export function claimMining(address: any, type: string, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/claimmining`, 'POST', {
+    const res = await api(`user/claimmining`, 'post', {
       walletAddress: address,
       type: type,
     })
@@ -522,7 +521,7 @@ export function claimMining(address: any, type: string, cb: any) {
 
 export function requestMining(address: any, type: string, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/requestmining`, 'POST', {
+    const res = await api(`user/requestmining`, 'post', {
       walletAddress: address,
       type: type,
     })
@@ -537,7 +536,7 @@ export function requestMining(address: any, type: string, cb: any) {
 
 export function saveDiscord(address: any, discord: string, cb: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/discord`, 'POST', {
+    const res = await api(`user/discord`, 'post', {
       walletAddress: address,
       discord: discord,
     })
@@ -552,7 +551,7 @@ export function saveDiscord(address: any, discord: string, cb: any) {
 
 export function plantAllMeat(address: any, cb?: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/plant/set`, 'POST', {
+    const res = await api(`user/plant/set`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -566,7 +565,7 @@ export function plantAllMeat(address: any, cb?: any) {
 }
 export function getAllMeat(address: any, cb?: any) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/plant/get`, 'POST', {
+    const res = await api(`user/plant/get`, 'post', {
       walletAddress: address,
     })
     cb(res)
@@ -583,7 +582,7 @@ export async function checkWithdrawableReqeust(
   address: string,
   amount: number,
 ) {
-  return await fetchData(`/user/check-withdrawable`, 'POST', {
+  return await api(`user/check-withdrawable`, 'post', {
     walletAddress: address,
     amount: amount,
   })
@@ -591,7 +590,7 @@ export async function checkWithdrawableReqeust(
 
 export async function getWithdrawAmount(address: string) {
   return async (dispatch: any) => {
-    const res = await fetchData(`/user/get-withdrew-amount`, `POST`, {
+    const res = await api(`user/get-withdrew-amount`, `post`, {
       walletAddress: address,
     })
     if (res.success) {
@@ -605,7 +604,7 @@ export async function getWithdrawAmount(address: string) {
 
 // export function addExp(address: any, amount: Number, cb: any) {
 //   return async (dispatch: any) => {
-//     const res = await fetchData(`/user/add/exp`, 'POST', {
+//     const res = await api(`user/add/exp`, 'post', {
 //       walletAddress: address,
 //       amount: amount,
 //     })

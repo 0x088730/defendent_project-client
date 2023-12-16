@@ -8,7 +8,7 @@ const isWithin24h = (date: string): boolean => {
 }
 
 export const getBcsPrice = async (): Promise<number> => {
-  return (await fetchData(`/user/get-bcs-price`, 'GET')).price
+  return (await api(`/user/get-bcs-price`, 'get')).price
 }
 
 export const getWithdrewDrgAmount = (withdraws: Withdraw[]): number => {
