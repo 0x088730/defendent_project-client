@@ -112,7 +112,7 @@ const ExchangeModal = ({
           if (prevTime === 1) {
             setBtnType('Claim')
             dispatch(
-              checkCooldown(address, 'hunter-level-up', (res: any) => {
+              checkCooldown(address, 'hunterLevelUp', (res: any) => {
                 let cooldownSec = res.data.time;
                 if (Number.isNaN(res.data.count) || res.data.count === undefined) {
                   setCooldownCount(0)
@@ -151,7 +151,7 @@ const ExchangeModal = ({
   useEffect(() => {
     if (open === true && address !== '')
       dispatch(
-        checkCooldown(address, 'hunter-level-up', (res: any) => {
+        checkCooldown(address, 'hunterLevelUp', (res: any) => {
           let cooldownSec = res.data.time
           if (Number.isNaN(res.data.count) || res.data.count === undefined) {
             setCooldownCount(0)

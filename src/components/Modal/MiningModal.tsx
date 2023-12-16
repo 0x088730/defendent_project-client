@@ -92,7 +92,7 @@ const MiningModal = ({
   useEffect(() => {
     if (address !== '') {
       dispatch(
-        checkCooldown(address, 'level-up', (res: any) => {
+        checkCooldown(address, 'levelUp', (res: any) => {
           let cooldownSec = res.data
           if (cooldownSec === 999999) {
             // if(miningStatus === false) return

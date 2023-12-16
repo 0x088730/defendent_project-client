@@ -110,7 +110,7 @@ const DragonTownModal = ({
                     if (prevTime === 1) {
                         setBtnType('Claim')
                         dispatch(
-                            checkCooldown(address, 'dragon-town', (res: any) => {
+                            checkCooldown(address, 'dragonTown', (res: any) => {
                                 if (res.data === false) return
                                 let cooldownSec = res.data.time;
                                 setEggArray(res.data.eggArray);
@@ -145,7 +145,7 @@ const DragonTownModal = ({
     useEffect(() => {
         if (townModalOpen === true && address !== '')
             dispatch(
-                checkCooldown(address, 'dragon-town', (res: any) => {
+                checkCooldown(address, 'dragonTown', (res: any) => {
                     if (res.data === false) return
                     let cooldownSec = res.data.time;
                     setEggArray(res.data.eggArray);
