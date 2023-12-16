@@ -157,7 +157,7 @@ const MiningModal = ({
       }
       if (btnType === 'Start') {
         dispatch(
-          setCooldown(address, 'level-up', true, (res: any) => {
+          setCooldown(address, 'levelUp', true, (res: any) => {
             if (!isCooldownStarted) {
               setDrgAmount(res.data);
               setRemainedTime(30)
