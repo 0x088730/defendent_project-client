@@ -3,53 +3,39 @@ import { Grid, TextField, Stack, InputLabel, FormControl /* , Tooltip */ } from 
 import Box from '@mui/material/Box'
 import Button from '@mui/material/Button'
 import Modal from '@mui/material/Modal'
-import Typography from '@mui/material/Typography'
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
 import {
   ADMIN_WALLET_ADDRESS,
-  FEE_WALLET_ADDRESS,
   chainId,
 } from '../../hooks/constants'
 import { deposit, sendToken } from '../../hooks/hook'
 import { useWeb3Context } from '../../hooks/web3Context'
 import {
-  /* checkWithdrawableReqeust,  */ depositRequest,
-  meatRequest,
+  depositRequest,
   withdrawRequest,
 } from '../../store/user/actions'
 import { onShowAlert } from '../../store/utiles/actions'
 import { checkPremium } from '../../utils/checkPremium'
-// import { Withdraw } from "../../store/user/action-types";
-// import api from '../../utils/callApi';
 import { getBcsPrice, getWithdrewDrgAmount } from '../../utils/user'
 
 interface Props {
   depositModalOpen: boolean
   setDepositModalOpen: any
   modalTitle: any
-  // meat: any
-  // egg: any
-  // onExchange: any
-  // onExchangeEgg: any
+  setDrg: any
 }
 
 const DepositModal = ({
   depositModalOpen,
   setDepositModalOpen,
   modalTitle,
-  // meat,
-  // egg,
-  // onExchange,
-  // onExchangeEgg,
+  setDrg,
 }: Props) => {
   const { connected, chainID, address, connect } = useWeb3Context()
   const { user } = useSelector((state: any) => state.userModule)
   const dispatch = useDispatch<any>()
-
-  // const handleOpen = () => setOpen(true)
-  // const handleClose = () => setOpen(false)
 
   const [deposit_Withdraw, setdeposit_Withdraw] = useState("DEPOSIT")
   const [bcsAmount, setBCSAmount] = useState(0)
@@ -88,27 +74,6 @@ const DepositModal = ({
     }
   }
 
-  const onChangeEggAmount = (e: any) => {
-    e.preventDefault()
-
-    if (e.target.value < 0) return
-
-    setDrgAmount(e.target.value)
-  }
-
-  const onmeat = async () => {
-    dispatch(
-      meatRequest(address, (res: any) => {
-        // handleClose()
-        if (res.success) {
-          dispatch(onShowAlert('meat Load successfully', 'success'))
-        } else {
-          dispatch(onShowAlert('meat Load faild!', 'warning'))
-        }
-      }),
-    )
-  }
-
   const onDeposit = async () => {
     if (bcsAmount < 320) {
       alert("minimal withdraw amount is 320BCS");
@@ -130,7 +95,6 @@ const DepositModal = ({
         bcsAmount,
         transaction.transactionHash,
         (res: any) => {
-          // handleClose()
           if (res.success) {
             dispatch(onShowAlert('Deposit successfully', 'success'))
           } else {
@@ -158,15 +122,14 @@ const DepositModal = ({
     }
     dispatch(onShowAlert('Pease wait while confirming', 'info'))
 
-    // const transaction = await sendToken(address, FEE_WALLET_ADDRESS[chainId], 1)
-
     dispatch(
       withdrawRequest(
         address,
         drgAmount,
-        // transaction.transactionHash,
         (res: any) => {
-          // handleClose()
+          setDrg(res.drg)
+          alert("Withdraw successfully");
+          setDepositModalOpen(false);
           if (res && res?.success) {
             dispatch(onShowAlert('Withdraw successfully', 'success'))
           } else {
@@ -192,8 +155,6 @@ const DepositModal = ({
     <>
       <Modal
         open={depositModalOpen}
-        // open={true}
-        // onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
       >

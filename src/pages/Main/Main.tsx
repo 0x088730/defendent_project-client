@@ -87,7 +87,6 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
   const [openSwap, setOpenSwap] = useState(false)
   const [openUpgradeWall, setOpenUpgradeWall] = useState(false)
   const [openRock, setOpenRock] = useState(false)
-  const [openDeposit, setOpenDeposit] = useState(false)
   const [openMining, setOpenMining] = useState(false)
   const [levelState, setLevelState] = React.useState(global.level)
 
@@ -242,17 +241,12 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
     width: {
       xs: 200,
       sm: 400,
-      // md: 800,
       md: 665,
     },
 
     border: 'none',
     outline: 'none',
-    // maxHeight: '500px',
-    // overflow: 'auto',
     overflow: 'initial',
-    // boxShadow: 24,
-    // p: 4,
   }
 
   useEffect(() => {
@@ -316,6 +310,7 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
               showAccount={showAccount}
               setShowAccount={setShowAccount}
               Drg={Drg}
+              setDrg={setDrg}
               eggs={eggs}
               meat={meat}
             />

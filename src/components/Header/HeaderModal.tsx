@@ -1,21 +1,11 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy'
 import OpenInNewIcon from '@mui/icons-material/OpenInNew'
 import TaskAltRoundedIcon from '@mui/icons-material/TaskAltRounded'
-
-// import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
-
 import { Box, TextField } from '@mui/material'
 import Button from '@mui/material/Button'
-// import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal'
 import useMediaQuery from '@mui/material/useMediaQuery'
 import { useState, useEffect } from 'react'
-//
-// import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
-
-// import { Tooltip } from '@mui/material';
-// import NetworkItem from "../NetworkItem/NetworkItem";
-
 import { useDispatch, useSelector } from 'react-redux'
 
 import { chainData } from '../../hooks/data'
@@ -41,7 +31,6 @@ const HeaderModal = ({ openAccount, setOpenAccount }: Props) => {
   const userModule = useSelector((state: any) => state.userModule)
   const { user } = userModule
 
-  // const handleOpen = () => setOpenAccount(true);
   const handleClose = () => setOpenAccount(false)
 
   const [copied, setCopied] = useState(false)

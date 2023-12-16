@@ -1,44 +1,32 @@
-// import { chainData } from "../../hooks/data";
-// import Jazzicon, { jsNumberForAddress } from 'react-jazzicon'
 import { Box, Button } from '@mui/material'
 import React, { useState, useEffect } from 'react'
-// import ExchangeModal from "./ExchangeModal";
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  Link,
-  /* Navigate, NavLink, */ useNavigate,
+  useNavigate,
   useSearchParams,
 } from 'react-router-dom'
 
-import {
-  /* changeNetwork, */ getTransaction /* , sendToken */,
-} from '../../hooks/hook'
 import { useWeb3Context } from '../../hooks/web3Context'
 import { /* buyPremium,  */ getUserData } from '../../store/user/actions'
-// import { ADMIN_WALLET_ADDRESS, chainId, PREMIUM_COST } from "../../hook/constants";
 import { onShowAlert } from '../../store/utiles/actions'
 import { checkPremium } from '../../utils/checkPremium'
 import { /* formatDecimal,  */ shortAddress } from '../../utils/tools'
-import AccountIcon from '../AccountIcon/AccountIcon'
 import PreniumModal from '../Modal/PremiumModal'
 
 import styles from './Header.module.scss'
-import HeaderModal from './HeaderModal'
-import { ClientRequest } from 'http'
 import InforModal from './InforModal'
-import { setLoadingStatus } from '../../common/state/game/reducer'
-import store from '../../store'
 import DepositModal from '../Modal/DepositModal'
 
 interface HeaderProps {
   showAccount: any
   setShowAccount: any
   Drg: any
+  setDrg: any
   eggs: any
   meat: any
 }
 
-const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) => {
+const Header = ({ showAccount, setShowAccount, Drg, setDrg, eggs, meat }: HeaderProps) => {
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
   const ref = searchParams.get('ref')
@@ -87,26 +75,12 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
 
   const getPremium = async () => {
     setOpenPremium(true)
-    // try{
-    //   dispatch(onShowAlert("Pease wait while confirming", "info"));
-    //   let transaction = await sendToken(address, ADMIN_WALLET_ADDRESS[chainId], PREMIUM_COST);
-    //   dispatch(buyPremium(address, PREMIUM_COST, transaction.transactionHash, (res:any)=>{
-    //     if(res.success) {
-    //       dispatch(onShowAlert("Buy permium successfully", "success"));
-    //     } else {
-    //       dispatch(onShowAlert("Faild in buying premium", "warning"));
-    //     }
-    //   }));
-    // } catch(e){
-    //   console.log(e);
-    // }
   }
 
   useEffect(() => {
     headerList()
   }, [userModule])
   const onMain = () => {
-    // store.dispatch(setLoadingStatus(true));
     navigate("/", { replace: true });
   }
 
@@ -162,7 +136,6 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
         >
           <span style={{ display: 'flex', alignItems: 'center' }}>
             <span>{shortAddress(address)}</span>
-            {/* <AccountIcon address={address} size={18} /> */}
           </span>
         </button>
       )}
@@ -173,7 +146,6 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
         <img
           alt=""
           style={{ width: '25px', marginRight: '10px' }}
-          // src="/images/res_Drg.png"
         />
         {`DRG: ${Drg}`}
       </p>
@@ -201,14 +173,14 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
       </p>
       <div
         className={styles.meat}
-        style={{ 
-          background: 'url(/images/but_style1.png)', 
-          justifyContent: "center", 
-          width: 170, 
-          height: 35, 
-          marginLeft: '8px', 
+        style={{
+          background: 'url(/images/but_style1.png)',
+          justifyContent: "center",
+          width: 170,
+          height: 35,
+          marginLeft: '8px',
           cursor: 'pointer',
-          zIndex: '100000' 
+          zIndex: '100000'
         }}
         onClick={() => onDeposit("deposit")}
       >
@@ -216,27 +188,24 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
       </div>
       <p
         className={styles.meat}
-        style={{ 
-          background: 'url(/images/but_style1.png)', 
-          justifyContent: "center", 
-          width: 170, 
-          height: 35, 
-          marginLeft: '8px', 
+        style={{
+          background: 'url(/images/but_style1.png)',
+          justifyContent: "center",
+          width: 170,
+          height: 35,
+          marginLeft: '8px',
           cursor: 'pointer',
-          zIndex: '100000' 
+          zIndex: '100000'
         }}
         onClick={() => onDeposit("withdraw")}
       >
         WITHDRAW
-      </p>      
+      </p>
       <DepositModal
         depositModalOpen={depositModalOpen}
         setDepositModalOpen={setDepositModalOpen}
         modalTitle={modalTitle}
-        // meat={meat}
-        // egg={eggs}
-        // onExchange={onExchange}
-        // onExchangeEgg={onExchangeEgg}
+        setDrg={setDrg}
       />
     </Box>
   }
@@ -259,7 +228,6 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
           className={styles.Drg}
           sx={{ display: 'flex', position: "absolute", left: "20px", top: "93vh", alignItems: 'center', zIndex: "1000" }}
         >
-          {/* <Link to="/" className="button muted-button"> */}
           <button
             style={{
               background: 'url(/images/but_style2.png)',
@@ -272,7 +240,6 @@ const Header = ({ showAccount, setShowAccount, Drg, eggs, meat }: HeaderProps) =
           >
             Back
           </button>
-          {/* </Link> */}
         </Box>
       </Box>
     </header>

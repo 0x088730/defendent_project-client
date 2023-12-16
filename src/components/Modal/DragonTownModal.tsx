@@ -56,7 +56,6 @@ const DragonTownModal = ({
         if (townModalOpen === true && presentEggs === 0) {
             if (c + 1 < selectedTimer) {
                 let j = Number(selectedTimer) - Number(c);
-                console.log(j, presentEggs, eggArray)
                 let eggNum = 0;
                 for (let i = 0; i < j - 1; i++) {
                     eggNum = eggNum + Number(eggArray[i].egg);
