@@ -39,7 +39,7 @@ export function getUserData(address: any, ref: any, cb: any) {
 
 export function startMineTownCooldown(address: any, cooldownCount: number, rewardAmount: number, cardImg: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await api(`user/start/mineTown-cooldown`, 'post', {
+    const res = await api("user/start/mineTownCooldown", 'post', {
       walletAddress: address,
       cooldownCount: cooldownCount,
       rewardAmount: rewardAmount,
@@ -55,7 +55,7 @@ export function startMineTownCooldown(address: any, cooldownCount: number, rewar
 
 export function startDragonTownCooldown(address: any, price: any, times: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await api(`user/start/dragonTown-cooldown`, 'post', {
+    const res = await api("user/start/dragonTownCooldown", 'post', {
       walletAddress: address,
       price: price,
       times: times,
