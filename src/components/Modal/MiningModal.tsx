@@ -92,7 +92,7 @@ const MiningModal = ({
   useEffect(() => {
     if (address !== '') {
       dispatch(
-        checkCooldown(address, 'levelUp', (res: any) => {
+        checkCooldown(address, 'level-up', (res: any) => {
           let cooldownSec = res.data
           if (cooldownSec === 999999) {
             // if(miningStatus === false) return
@@ -157,7 +157,7 @@ const MiningModal = ({
       }
       if (btnType === 'Start') {
         dispatch(
-          setCooldown(address, 'levelUp', true, (res: any) => {
+          setCooldown(address, 'level-up', true, (res: any) => {
             if (!isCooldownStarted) {
               setDrgAmount(res.data);
               setRemainedTime(30)

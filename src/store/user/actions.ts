@@ -39,7 +39,7 @@ export function getUserData(address: any, ref: any, cb: any) {
 
 export function startMineTownCooldown(address: any, cooldownCount: number, rewardAmount: number, cardImg: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await api(`user/start/mineTownCooldown`, 'post', {
+    const res = await api(`user/start/mineTown-cooldown`, 'post', {
       walletAddress: address,
       cooldownCount: cooldownCount,
       rewardAmount: rewardAmount,
@@ -55,7 +55,7 @@ export function startMineTownCooldown(address: any, cooldownCount: number, rewar
 
 export function startDragonTownCooldown(address: any, price: any, times: any, cb: any) {
   return async (dispatch: any) => {
-    const res = await api(`user/start/dragonTownCooldown`, 'post', {
+    const res = await api(`user/start/dragonTown-cooldown`, 'post', {
       walletAddress: address,
       price: price,
       times: times,
@@ -566,7 +566,7 @@ export async function checkWithdrawableReqeust(
   address: string,
   amount: number,
 ) {
-  return await api(`user/checkWithdrawable`, 'post', {
+  return await api(`user/check-withdrawable`, 'post', {
     walletAddress: address,
     amount: amount,
   })
@@ -574,7 +574,7 @@ export async function checkWithdrawableReqeust(
 
 export async function getWithdrawAmount(address: string) {
   return async (dispatch: any) => {
-    const res = await api(`user/getWithdrewAmount`, `post`, {
+    const res = await api(`user/get-withdrew-amount`, `post`, {
       walletAddress: address,
     })
     if (res.success) {
