@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { global } from '../../common/global'
 import "./modal.css"
-import { buyDragon, getDragonList } from '../../store/user/actions'
+import { buyDragon } from '../../store/user/actions'
 import { useWeb3Context } from '../../hooks/web3Context'
 import { getProfile } from '../../common/api'
 import DragonInfoModal from './DragonInfoModal'
@@ -24,34 +24,26 @@ const DragonModal = ({
     const { address } = useWeb3Context();
 
     const [meat, setMeat] = useState(userModule.user.meat);
-    const [dragons, setDragons] = useState([]);
     useEffect(() => {
-        if (address) {
-            dispatch(
-                getDragonList(address, (res: any) => {
-                    setDragons(res.dragons)
-                    if (res.dragons.length === 1) {
-                        setBuyedGoldDragon(false);
-                        setBuyedPinkDragon(false);
-                        setBuyedDarkDragon(false);
-                    }
-                    if (res.dragons.length === 2) {
-                        setBuyedGoldDragon(true);
-                        setBuyedPinkDragon(false);
-                        setBuyedDarkDragon(false);
-                    }
-                    if (res.dragons.length === 3) {
-                        setBuyedGoldDragon(true);
-                        setBuyedPinkDragon(true);
-                        setBuyedDarkDragon(false);
-                    }
-                    if (res.dragons.length === 4) {
-                        setBuyedGoldDragon(true);
-                        setBuyedPinkDragon(true);
-                        setBuyedDarkDragon(true);
-                    }
-                })
-            )
+        if (global.dragons.length === 1) {
+            setBuyedGoldDragon(false);
+            setBuyedPinkDragon(false);
+            setBuyedDarkDragon(false);
+        }
+        if (global.dragons.length === 2) {
+            setBuyedGoldDragon(true);
+            setBuyedPinkDragon(false);
+            setBuyedDarkDragon(false);
+        }
+        if (global.dragons.length === 3) {
+            setBuyedGoldDragon(true);
+            setBuyedPinkDragon(true);
+            setBuyedDarkDragon(false);
+        }
+        if (global.dragons.length === 4) {
+            setBuyedGoldDragon(true);
+            setBuyedPinkDragon(true);
+            setBuyedDarkDragon(true);
         }
     }, [dragonModalOpen])
     useEffect(() => {
@@ -80,9 +72,6 @@ const DragonModal = ({
                         if (name === "gold_dragon") setBuyedGoldDragon(true);
                         if (name === 'pink_dragon') setBuyedPinkDragon(true);
                         if (name === 'dark_dragon') setBuyedDarkDragon(true)
-                        getDragonList(address, (res: any) => {
-                            setDragons(res.dragons)
-                        });
                         getProfile(address, "dragon");
                         setBuyingStatus(false);
                     }

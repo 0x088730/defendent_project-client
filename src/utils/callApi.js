@@ -6,6 +6,7 @@ export default async function callAPI(endpoint, method = 'get', data) {
   const configS = {
     method,
     url: `${config.server}:${config.port}${config.baseURL}/${endpoint}`,
+    // url: `${config.server}${config.baseURL}/${endpoint}`,
     headers: {},
     data,
   }

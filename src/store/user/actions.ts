@@ -421,22 +421,6 @@ export function buyDragon(
     })
   }
 }
-export function getDragonList(
-  address: any,
-  cb: any,
-) {
-  return async (dispatch: any) => {
-    const res = await api(`user/get/dragonList`, 'post', {
-      walletAddress: address,
-    })
-    
-    cb(res)
-    dispatch({
-      type: LEVELUP_HUNTER_SUCCESS,
-      payload: { data: res },
-    })
-  }
-}
 export function buyPremium(
   address: any,
   amount: number,
