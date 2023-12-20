@@ -56,6 +56,10 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
   const [openInstruction, setOpenInstruction] = useState(false)
 
   useEffect(() => {
+    if(isLoading === true) document.body.style.backgroundImage = 'url(assets/background/loading.png)'
+    if(isLoading === false) document.body.style.backgroundImage = 'url(assets/background/background.png)'
+  }, [isLoading])
+  useEffect(() => {
     if (global.wall === 0) {
       history.back();
     }
@@ -300,8 +304,8 @@ const Main = ({ showAccount, setShowAccount }: MainProps) => {
   return (
     <>
       {isLoading === true ?
-        <div style={{ width: '100%', height: '100%', backgroundColor: 'black' }}>
-          <RingLoader color="#36D7B7" loading={isLoading} size={150} style={{ position: 'absolute', top: '40vh', left: '45vw' }} />
+        <div className={styles.loader}>
+          Loading
         </div>
         :
         <>

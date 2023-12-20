@@ -42,6 +42,10 @@ export const GamePage = ({
   const user = useSelector((state: any) => state.userModule)
   const isLoading = useSelector((state: any) => state.app.game.isLoading)
 
+  useEffect(() => {
+    if(isLoading === true) document.body.style.backgroundImage = 'url(assets/background/loading.png)'
+    if(isLoading === false) document.body.style.backgroundImage = 'url(assets/background/background.png)'
+  }, [isLoading])
   const inventoryOpened = useSelector(
     (state: any) => state.app.game.inventoryOpened,
   )
@@ -132,8 +136,8 @@ export const GamePage = ({
   return (
     <div className="relative w-full">
       {isLoading === true ?
-        <div style={{ width: '100%', height: '100%', backgroundColor: 'black' }}>
-          <RingLoader color="#36D7B7" loading={isLoading} size={150} style={{ position: 'absolute', top: '40vh', left: '45vw' }} />
+        <div>
+          Loading
         </div>
         :
         <div className="grid h-full" style={{minWidth: '1600px'}}>
