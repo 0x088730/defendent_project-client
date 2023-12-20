@@ -829,8 +829,7 @@ export default class Battle extends Phaser.Scene {
       store.dispatch(setGameStatus(0))
       // getProfile(global.walletAddress, 'siren-1')
       this.scene.start('game')
-      const video = document.getElementById('backgroundVideo') as HTMLElement
-      video.style.display = "block"
+      document.body.style.backgroundImage = 'url(assets/background/background.png)'
       this.registry.destroy()
     })
   }

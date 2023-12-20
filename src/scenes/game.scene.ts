@@ -28,8 +28,6 @@ export default class Game extends Phaser.Scene {
   }
 
   changeBackground(src: string) {
-    const video = document.getElementById('backgroundVideo') as HTMLElement
-    video.style.display = "none"
     document.body.style.backgroundImage = src
   }
 
@@ -45,8 +43,7 @@ export default class Game extends Phaser.Scene {
       this.time.addEvent({
         delay: 1000,
         callback: () => {
-          const video = document.getElementById('backgroundVideo') as HTMLElement
-          video.style.display = "block"
+          this.changeBackground('url(assets/background/background.png')
           store.dispatch(setLoadingStatus(false));
         },
       })
@@ -60,9 +57,6 @@ export default class Game extends Phaser.Scene {
       .on('closed', () => {
         // this.btnContainer.setVisible(true)
         store.dispatch(setInventoryStatus(false))
-        this.changeBackground("")
-        const video = document.getElementById('backgroundVideo') as HTMLElement
-        video.style.display = "block"
       })
       .on('loot', () => {
         this.changeBackground('url(assets/images/claim-bg.jpg)')
@@ -74,9 +68,6 @@ export default class Game extends Phaser.Scene {
     this.dragonWidget
       .on('closed', () => {
         store.dispatch(setDragonStatus(false))
-        this.changeBackground("")
-        const video = document.getElementById('backgroundVideo') as HTMLElement
-        video.style.display = "block"
       })
 
     this.claimWidget = new ClaimWidget(this, 960, 540).on(
@@ -88,8 +79,7 @@ export default class Game extends Phaser.Scene {
         this.inventoryWidget.setVisible(true)
         this.dragonWidget.showStatus(true)
         this.scene.start('game')
-        const video = document.getElementById('backgroundVideo') as HTMLElement
-        video.style.display = "block"
+        this.changeBackground('url(assets/background/background.png')
       },
     )
     this.roomWidget = new RoomWidget(this, 880, 530)
@@ -136,8 +126,7 @@ export default class Game extends Phaser.Scene {
     this.roomWidget
       .on('cancel', () => {
         store.dispatch(setGameStatus(0))
-        const video = document.getElementById('backgroundVideo') as HTMLElement
-        video.style.display = "block"
+        this.changeBackground('url(assets/background/background.png')
         this.roomWidget.destroy()
       })
       .on('start', (chapter: number, section: number) => {

@@ -5,7 +5,8 @@ import './index.css'
 import App from './App'
 import reportWebVitals from './reportWebVitals'
 
-// document.body.style.backgroundImage = 'url(assets/background/main.gif)'
+document.body.style.backgroundImage = 'url(assets/background/background.png)'
+document.body.style.backgroundSize = "cover"
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
